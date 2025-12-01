@@ -1,4 +1,4 @@
-package com.github.kusoroadeolu.NullSafe;
+package com.github.kusoroadeolu.NullSafe.annotations;
 
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;

@@ -1,26 +1,21 @@
 package com.github.kusoroadeolu.NullSafe;
 
-import net.bytebuddy.asm.Advice;
+import com.github.kusoroadeolu.NullSafe.annotations.EnableNullSafety;
+import com.github.kusoroadeolu.NullSafe.annotations.NullSafe;
 
-import java.util.concurrent.Executor;
-
+@EnableNullSafety  //Should only be used on classes with default constructors
 public class Foo {
-
-    public void name(@NullSafe String value, @NullSafe Bar bar){
-        var v = value.substring(1);
-        assert bar != null;
-        bar.bar();
+    public void foo(@NullSafe Foo foo, int fooTimes){
+        for (int i = 0; i < fooTimes; i++){
+            foo.printFoo();
+        }
     }
 
-
-    public Integer foo(int add){
-        return add;
+    public void anotherFoo(@NullSafe Integer val){
+        val.byteValue();
     }
 
-    public String toString( Object target){
-        return "Foo";
+    public void printFoo(){
+        IO.println("Foo'ing");
     }
-
-
-
 }
