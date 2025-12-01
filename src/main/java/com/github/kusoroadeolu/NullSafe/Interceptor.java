@@ -27,7 +27,7 @@ public class Interceptor {
             final Class<?> clazz = p.getType();
 
             if(o == null && p.isAnnotationPresent(NullSafe.class)){
-                if(clazz.isEnum() || clazz.isInterface()){
+                if(clazz.isEnum() || clazz.isInterface() || Modifier.isAbstract(clazz.getModifiers())){
                     throw new NullParamException("Found a null uninferrable type, cannot infer a default for type: '%s'.".formatted(clazz.getCanonicalName()));
                 }
 

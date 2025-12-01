@@ -1,5 +1,3 @@
-import com.github.kusoroadeolu.NullSafe.Foo;
-
 import java.lang.instrument.Instrumentation;
 
 import static com.github.kusoroadeolu.NullSafe.AgentTransformer.transform;
@@ -10,7 +8,7 @@ void main() {
 }
 
 public static void premain(String args,  Instrumentation instrument) {
-         transform(instrument);
+    transform(instrument);
 }
 
 
