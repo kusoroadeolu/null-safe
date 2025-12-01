@@ -8,8 +8,10 @@ public class Foo {
 
     public void name(@NullSafe String value, @NullSafe Bar bar){
         var v = value.substring(1);
+        assert bar != null;
         bar.bar();
     }
+
 
     public Integer foo(int add){
         return add;
