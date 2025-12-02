@@ -51,6 +51,26 @@ void main(){
 }
 ```
 
+
+## How to Test
+### Build the agent JAR
+``` bash
+ mvn clean package
+```
+Make sure the resulting JAR includes the Premain-Class or Agent-Class in its manifest.
+
+### Run your application with the agent attached
+``` bash
+java -javaagent:original-NullSafe-1.0-SNAPSHOT.jar -cp path/to/your/classes com.example.Main
+```
+
+Replace com.example.Main with the main class you want to test.
+
+### Verify behavior
+Call a method with @NullSafe parameters as null.
+**Observe:** If the parameter’s class has @EnableNullSafety and a default constructor → a new instance is created.
+</br> Otherwise → a NullParamException is thrown.
+
 ## Annotations
 ### NullSafe
 `@NullSafe` is a parameter-level annotation which ensures null values aren’t passed through methods. It acts as a guard between method calls.
